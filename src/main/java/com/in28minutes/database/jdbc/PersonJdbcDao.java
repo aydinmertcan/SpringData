@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.in28minutes.database.entity.Person;
 
 @Repository
-public class PersonJdbcDao {
+public class PersonJdbcDao{
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -19,4 +19,5 @@ public class PersonJdbcDao {
 	public List<Person> findAll() {
 		return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper(Person.class));
 	}
+
 }
