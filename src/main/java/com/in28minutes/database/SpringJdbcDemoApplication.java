@@ -12,25 +12,25 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.in28minutes.database.entity.Person;
 import com.in28minutes.database.jdbc.PersonJdbcDao;
 
-@SpringBootApplication
-public class DatabaseDemoApplication implements CommandLineRunner {
+//@SpringBootApplication
+public class SpringJdbcDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(DatabaseDemoApplication.class);
+	private Logger logger = LoggerFactory.getLogger(SpringJdbcDemoApplication.class);
 
 	@Autowired
 	private PersonJdbcDao dao;
 
 	public static void main(String[] args) {
-		SpringApplication.run(DatabaseDemoApplication.class, args);
+		SpringApplication.run(SpringJdbcDemoApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info("All users -> {}", dao.findAll());
 		logger.info("User id 10001 -> {}", dao.findById(10001));
-		logger.info("Deleting 10002 -> {}", dao.deleteById(10002));
-		logger.info("Inserting 10004 -> {}", dao.insert(new Person(10004, "Mert Can", "Berlin", new Date())));
-		logger.info("Updating 10003 -> {}", dao.update(new Person(10003, "Ayca", "Amsterdam", new Date())));
+//		logger.info("Deleting 10002 -> {}", dao.deleteById(10002));
+//		logger.info("Inserting 10004 -> {}", dao.insert(new Person(10004, "Mert Can", "Berlin", new Date())));
+//		logger.info("Updating 10003 -> {}", dao.update(new Person(10003, "Ayca", "Amsterdam", new Date())));
 		
 		/*
 		 * All users -> [Person [id=10001, name=Ranga, location=Hyderabad, birthDate=2022-01-14 00:00:00.0], 
