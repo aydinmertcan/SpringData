@@ -10,7 +10,6 @@ import javax.persistence.NamedQuery;
 
 @Entity
 //@Table(name="person") We dont need to write it. Because the table name matches with name of the class
-@NamedQuery(name = "find_all_people", query = "select p from Person as p")
 public class Person {
 	
 	@Id
