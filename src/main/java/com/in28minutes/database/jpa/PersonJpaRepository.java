@@ -1,7 +1,10 @@
 package com.in28minutes.database.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -33,6 +36,12 @@ public class PersonJpaRepository {
 	public void deleteById(int id) {
 		Person person = findById(id);
 		entityManager.remove(person);
+	}
+	
+	//JPQL Java Persistance Query Language
+	public List<Person> findAll() {
+		TypedQuery<Person> namedQuery =  entityManager.createNamedQuery("find_all_people",Person.class);
+		return namedQuery.getResultList();
 	}
 
 }
