@@ -2,19 +2,31 @@ package com.in28minutes.database.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+//@Table(name="person") We dont need to write it. Because the table name matches with name of the class
 public class Person {
+	
+	@Id
+	@GeneratedValue
 	private int id;
+	
+//	@Column(name="name") It is also matches with the col name. It is not necessary.
 	private String name;
 	private String location;
 	private Date birthDate;
 	
+	
+	// We need to have a default constructor
 	public Person() {
 		
 	}
 	
-	public Person(int id, String name, String location, Date birthDate) {
+	public Person(String name, String location, Date birthDate) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.location = location;
 		this.birthDate = birthDate;
